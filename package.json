@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-ebwebview",
-  "version": "1.0.0-dev",
+  "version": "1.0.1",
   "description": "Cordova Embedded Webview Plugin",
   "cordova": {
     "id": "cordova-plugin-webview",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/covernal/cordova-plugin-webview"
+    "url": "https://github.com/janpekarguru/cordova-plugin-webview"
   },
   "keywords": [
     "cordova",
@@ -27,6 +27,6 @@
       "version": ">=3.1.0"
     }
   ],
-  "author": "covernal@hotmail.com",
+  "author": "jan.pekar@gmail.com",
   "license": "Apache 2.0"
 }
