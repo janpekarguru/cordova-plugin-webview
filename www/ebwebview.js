@@ -63,6 +63,9 @@ EbWebview.prototype = {
     setSize: function (width, height) {
       exec(null, null, "EbWebview", "setSize", [width, height]);
     },
+	fullScreen: function () {
+      exec(null, null, "EbWebview", "fullScreen", []);
+    },
     getScreenshot: function (quality, callback) {
       exec(callback, callback, "EbWebview", "getScreenshot", [quality]);
     },
