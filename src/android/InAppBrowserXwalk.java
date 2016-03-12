@@ -300,10 +300,11 @@ public class InAppBrowserXwalk extends CordovaPlugin {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
+		/*
 		jsna.put(jObj);
 		jsna.put(jObj2);
 		setSize(jsna);
-		
+		*/
 	}
 	
 	
