@@ -282,7 +282,57 @@ public class InAppBrowserXwalk extends CordovaPlugin {
             }
         });
     }
+	public void fullScreenTest(){
+		//get screen size
+		DisplayMetrics dm = new DisplayMetrics();
+		this.cordova.getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
+		int width 	= dm.widthPixels;
+        int height 	= dm.heightPixels;
+		// convert to json
+		JSONArray jsna;
+		JSONObject jObj 	= new JSONObject();
+		JSONObject jObj2 	= new JSONObject();
+		
+		try {
+			jObj.put("0",width);
+			jObj2.put("0",height);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		jsna.put(jObj);
+		jsna.put(jObj2);
+		setSize(jsna);
+		
+	}
+	
+	
+	public void fullScreen(){
+		//get screen size
+		DisplayMetrics dm = new DisplayMetrics();
+		this.cordova.getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
+		final int width 	= dm.widthPixels;
+        final int height 	= dm.heightPixels;
+		//final int width 	= 1200;
+        //final int height 	= 800;
+		this.cordova.getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if(dialog == null)
+                    return;
+                Window dialogWindow = dialog.getWindow();
 
+                WindowManager.LayoutParams lp = dialogWindow.getAttributes();
+                lp.width = width; // The new position of the X coordinates
+                lp.height = height; // The new position of the Y coordinates
+                dialogWindow.setAttributes(lp);
+                dialog.setContentView(xWalkWebView, lp);
+                dialog.show();
+            }
+        });
+		
+	}
+	
+	
     // Set the width and height parameter. Data : WIDTH, HIGHT
     public void setSize(JSONArray data)  throws JSONException {
         final int width = data.getInt(0);
